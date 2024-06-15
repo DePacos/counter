@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #051d45;
+}
+
+.appWrap{
+    display: flex;
+    gap: 50px;
+}
+
+.settingWrap,
+.counterWrap
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.settingWrap legend,
+.counterWrap legend
+{
+    color: #fff;
+    font-size: 20px;
+}
+
+.settingWrap fieldset,
+.counterWrap fieldset
+{
+    border-radius: 5px;
+    padding: 10px 20px 20px;
+}
+
+.settingWrap input {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.counterWrap span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 215px;
+    height: 152px;
+    font-size: 44px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+.settingWrap .inputError{
+    background-color: red;
+}
+
+.counterWrap .inputMax{
+    color: red;
+}
+
+.counterWrap .buttonWrap{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.counterWrap button{
+    padding: 10px 20px;
+}
+
+.counterWrap button,
+.settingWrap button{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: darkgray;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform .3s;
+}
+.settingWrap button{
+    width: 200px;
+    margin: 0 auto;
+    padding: 8px 0;
+}
+
+.settingWrap button:hover,
+.counterWrap button:hover
+{
+    transform: scale(1.05);
+}
+
+.settingWrap button:active,
+.counterWrap button:active
+{
+    transform: translateY(2px);
+}
