@@ -1,28 +1,19 @@
 import {
-    changeCounterActionType,
-    changeInputMaximumActionType,
-    changeInputStartActionType,
+    ChangeCounterActionType,
+    ChangeInputMaximumActionType,
+    ChangeInputStartActionType,
     CounterStateType,
-    toggleErrorActionType
+    ToggleErrorActionType
 } from "../../types/counter.ts";
-import {loadState} from "../../utils/localStorage.ts";
-
-
-
-type ActionTypes  =
-    changeInputStartActionType |
-    changeInputMaximumActionType |
-    toggleErrorActionType |
-    changeCounterActionType
 
 const initialState = {
-    startValue:  loadState() === undefined ? '0': loadState().startValue,
-    maximumValue: loadState() === undefined ? '0': loadState().maxValue,
-    counterValue: loadState() === undefined ? 'enter value and press SET': loadState().startValue,
+    startValue:  '0',
+    maximumValue: '1',
+    counterValue: 'enter value and press SET',
     error: false
 }
 
-export const counterReducer = (state: CounterStateType = initialState, action: ActionTypes) => {
+export const counterReducer = (state: CounterStateType = initialState, action: ActionTypes):CounterStateType => {
     switch (action.type) {
         case "CHANGE_INPUT_START":
             return {...state, startValue: +action.value < 0 ? '0': action.value}
@@ -35,6 +26,12 @@ export const counterReducer = (state: CounterStateType = initialState, action: A
         default:
             return state
     }
-};
+}
 
+
+type ActionTypes  =
+    ChangeInputStartActionType |
+    ChangeInputMaximumActionType |
+    ToggleErrorActionType |
+    ChangeCounterActionType
 
