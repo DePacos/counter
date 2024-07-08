@@ -5,15 +5,15 @@ import s from './../styles/styles.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {counterErrorSelector, counterMaximumSelector, counterSelector, counterStartSelector} from "../store/selectors/counterSelector.ts";
 import {changeCounterAC, changeInputMaximumAC, changeInputStartAC, toggleErrorAC} from "../store/actions/counterActions.ts";
-import {saveState} from '../utils/localStorage.ts'
+import {AppRootStateType} from "../types/counter.ts";
 
 
 
 export const CounterSetting = () => {
-    const counterValue = useSelector(counterSelector)
-    const start = useSelector(counterStartSelector)
-    const max = useSelector(counterMaximumSelector)
-    const error = useSelector(counterErrorSelector)
+    const counterValue = useSelector<AppRootStateType, string>(counterSelector)
+    const start = useSelector<AppRootStateType, string>(counterStartSelector)
+    const max = useSelector<AppRootStateType, string>(counterMaximumSelector)
+    const error = useSelector<AppRootStateType, boolean>(counterErrorSelector)
     const dispatch = useDispatch()
 
     useEffect(() =>{
@@ -35,7 +35,6 @@ export const CounterSetting = () => {
 
     const setValueHandler = () =>{
         dispatch(changeCounterAC(start))
-        saveState({startValue: start, maxValue: max})
     }
 
     return (
