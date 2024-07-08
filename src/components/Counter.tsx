@@ -3,11 +3,12 @@ import s from './../styles/styles.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {counterErrorSelector, counterMaximumSelector, counterSelector} from "../store/selectors/counterSelector.ts";
 import {changeCounterAC} from "../store/actions/counterActions.ts";
+import {AppRootStateType} from "../types/counter.ts";
 
 export const Counter = () => {
-    const counterValue = useSelector(counterSelector)
-    const max = useSelector(counterMaximumSelector)
-    const error = useSelector(counterErrorSelector)
+    const counterValue = useSelector<AppRootStateType, string>(counterSelector)
+    const max = useSelector<AppRootStateType, string>(counterMaximumSelector)
+    const error = useSelector<AppRootStateType, boolean>(counterErrorSelector)
     const dispatch = useDispatch()
 
     const incHandler = () =>{

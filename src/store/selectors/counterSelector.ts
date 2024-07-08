@@ -1,6 +1,6 @@
-import {AppRootState} from "../../types/counter.ts";
+import {AppRootStateType} from "../../types/counter.ts";
 
-export const counterStartSelector = (state: AppRootState) => state.counter.startValue
-export const counterMaximumSelector = (state: AppRootState) => state.counter.maximumValue
-export const counterErrorSelector = (state: AppRootState) => state.counter.error
-export const counterSelector = (state: AppRootState) => state.counter.counterValue
+export const counterStartSelector = (state: AppRootStateType) => state.counter.startValue
+export const counterMaximumSelector = (state: AppRootStateType) => state.counter.maximumValue
+export const counterErrorSelector = (state: AppRootStateType) => state.counter.error
+export const counterSelector = (state: AppRootStateType) => state.counter.counterValue
