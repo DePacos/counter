@@ -11,24 +11,28 @@ export type CounterStateType = {
     error: boolean
 }
 
-export type changeInputStartActionType = {
+export type ChangeInputStartActionType = {
     type: 'CHANGE_INPUT_START'
     value: string
 }
 
-export type changeInputMaximumActionType = {
+export type ChangeInputMaximumActionType = {
     type: 'CHANGE_INPUT_MAX'
     value: string
 }
 
-export type toggleErrorActionType = {
+export type ToggleErrorActionType = {
     type: 'TOGGLE_ERROR'
     value: boolean
 }
 
-export type changeCounterActionType = {
+export type ChangeCounterActionType = {
     type: 'CHANGE_COUNTER'
     value: string
 }
 
-export type AppRootState = ReturnType<typeof rootReducer>
+export type LocalStorageSaveType = {
+    counter: CounterStateType
+}
+
+export type AppRootStateType = ReturnType<typeof rootReducer>
