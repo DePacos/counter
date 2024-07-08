@@ -1,15 +1,17 @@
-export const saveState = (state:{startValue: string, maxValue: string}) => {
+import {LocalStorageSaveType} from "../types/counter.ts";
+
+export const saveState = (state: LocalStorageSaveType, localStorageKey: string) => {
     try {
         const serializedState = JSON.stringify(state)
-        localStorage.setItem('stateCounter', serializedState)
+        localStorage.setItem(localStorageKey, serializedState)
     } catch {
         console.log('local storage save error')
     }
 }
 
-export const loadState = () => {
+export const loadState = (localStorageKey: string) => {
     try {
-        const serializedState = localStorage.getItem('stateCounter')
+        const serializedState = localStorage.getItem(localStorageKey)
         if (serializedState === null) {
             return undefined
         }
